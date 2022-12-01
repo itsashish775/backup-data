@@ -1,0 +1,52 @@
+@layout('layouts/main')
+@set('title', 'Sign Up Page')
+
+@section('containt')
+<section class="p-4">
+    <h3 class="text-center">Registration Page</h3>
+    <hr>
+    <form action="" method="post">
+        <div class="d-flex justify-content-center border border-danger p-4">
+            <div class="col-5 px-4">
+                <div class="form-group">
+                    <label class="form-label" for="fname">First Name</label>
+                    <input type="text" name="fname" id="fname" class="form-control" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="dob">Date of Birth</label>
+                    <input type="Date" name="dob" id="dob" class="form-control" autocomplete="off">
+                </div>
+                
+                <button class="btn btn-secondary mt-4" type="reset">RESET</button>
+                <button class="btn btn-success mt-4" type="submit">SUBMIT</button>
+            </div>
+            <div class="col-5 px-4">
+                <div class="form-group">
+                    <label class="form-label" for="lname">Last Name</label>
+                    <input type="text" name="lname" id="lname" class="form-control" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="qualification">Highest Qualification</label>
+                    <select name="qualification" id="qualification" class="form-select">
+                        <option value="" disabled selected>select qualification</option>
+                        <option value="MCA">MCA</option>
+                        <option value="M.Tech">M.Tech</option>
+                        <option value="B.Tech">B.Tech</option>
+                        <option value="BCA">BCA</option>
+                        <option value="B.Sc">B.Sc</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</section>
+@end

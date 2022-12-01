@@ -30,3 +30,4 @@ Route.get("project6", "HomeController.project6");
 Route.get("project7", "HomeController.project7");
 Route.get("project8", "HomeController.project8");
 Route.get("project9", "HomeController.project9");
+Route.get("signup", "HomeController.showsignup");

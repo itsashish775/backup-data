@@ -69,6 +69,7 @@
     .list {
         padding: 0.3rem 0.4rem;
         margin-bottom: 1px;
+        display: flex;
         /* border: 1px solid white; */
     }
 
@@ -78,7 +79,7 @@
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
     }
-    
+
     .active {
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
@@ -123,6 +124,45 @@
         margin-top: 0.5rem;
         height: 75%;
     }
+    
+    .login {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        background: #0000007a;
+        display: none;
+    }
+    
+    .login .main {
+        background-color: white;
+        border-radius: 10px 0px 10px 0px;
+        background: repeating-linear-gradient(45deg, #000000 0%, #c300ff 20%);
+        /* border-top-left-radius: 20%;
+        border-bottom-right-radius: 20%; */
+        margin-top: 1rem;
+        box-shadow: 10px 10px 21px -3px rgba(0, 0, 0, 0.75);
+    }
+    
+    .toggle {
+        background-color: #fff;
+    }
+    @media (max-width: 1000px){
+        .res{
+            display: none;
+        }
+        .sidebar{
+            width: 10%;
+        }
+        .containt {
+            
+            left: 11%;
+            width: 88%;
+            /* top:rem; */
+            /* margin-top: 0.5rem;
+            height: 75%; */
+        }
+    }
 </style>
 
 <body>
@@ -132,8 +172,8 @@
             <div class="text-light main">
                 <div class="fs-3 ">MyCAGE</div>
                 <div class="">
-                    <a href="#">LOG IN</a>
-                    <a href="#">SIGN IN</a>
+                    <a href="#" onclick="showlogin()">LOG IN</a>
+                    <a href="/signup">SIGN IN</a>
                 </div>
             </div>
         </div>
@@ -144,31 +184,40 @@
         <section class="bg-secondary text-light">
             <div class="nav d-flex flex-column sidebar">
                 <div class="list {{title=='Project1'?'active':''}}">
-                    <a href="/project1">Bootstrap Accordion</a>
+                    
+                    <a href="/project1"><i class="material-icons mr-2">person</i><span class="res"> Bootstrap Accordion</span></a>
                 </div>
                 <div class="list {{title=='Project2'?'active':''}}">
-                    <a href="/project2">Bootstrap Cards</a>
+                    
+                    <a href="/project2"><i class="material-icons mr-2">notifications_active</i><span class="res"> Bootstrap Cards</span></a>
                 </div>
                 <div class="list {{title=='Project3'?'active':''}}">
-                    <a href="/project3">Bootstrap Carousel</a>
+                    
+                    <a href="/project3"><i class="material-icons mr-2">downhill_skiing</i><span class="res"> Bootstrap Carousel</span></a>
                 </div>
                 <div class="list {{title=='Project4'?'active':''}}">
-                    <a href="/project4">Bootstrap Dropdowns</a>
+                    
+                    <a href="/project4"><i class="material-icons mr-2">heart_broken</i><span class="res"> Bootstrap Dropdowns</span></a>
                 </div>
                 <div class="list {{title=='Project5'?'active':''}}">
-                    <a href="/project5">Bootstrap Spinners</a>
+                    
+                    <a href="/project5"><i class="material-icons mr-2">fireplace</i><span class="res"> Bootstrap Spinners</span></a>
                 </div>
                 <div class="list {{title=='Project6'?'active':''}}">
-                    <a href="/project6">Bootstrap Background color</a>
+                    
+                    <a href="/project6"><i class="material-icons mr-2">face_6</i><span class="res"> Bootstrap Background color</span></a>
                 </div>
                 <div class="list {{title=='Project7'?'active':''}}">
-                    <a href="/project7">Bootstrap Table</a>
+                    
+                    <a href="/project7"><i class="material-icons mr-2">party_mode</i><span class="res"> Bootstrap Table</span></a>
                 </div>
                 <div class="list {{title=='Project8'?'active':''}}">
-                    <a href="/project8">Bootstrap Icons</a>
+                    
+                    <a href="/project8"><i class="material-icons mr-2">kayaking</i><span class="res"> Bootstrap Icons</span></a>
                 </div>
                 <div class="list {{title=='Project9'?'active':''}}">
-                    <a href="/project9">Bootstrap Fonst</a>
+                    
+                    <a href="/project9"><i class="material-icons mr-2">replay_circle_filled</i><span class="res"> Bootstrap Fonst</span></a>
                 </div>
 
             </div>
@@ -176,6 +225,37 @@
     </div>
     <div class="container containt">
         @!section('containt')
+    </div>
+    <div class="login" id="login">
+        <div class="w-50 m-auto mt-4 text-light">
+            <div class="d-flex flex-row-reverse ">
+                <button class="material-icons bg-light btn toggle" onclick="close1()">close</button>
+            </div>
+            <div class="main pt-2">
+                <div class="w-95 h-100 m-3">
+                    <h1 class="m-5 p-5">Login</h1>
+                </div>
+                <div class="p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer class="footer1">
@@ -196,5 +276,16 @@
         </div>
     </footer>
 </body>
+<script type="text/javascript">
+    function close1(){
+        let  x= document.getElementById('login');
+        x.style.display='none';
+    }
+    function showlogin(){
+    let  x= document.getElementById('login');
+    x.style.display='block';
+    // console.log("this is Ashish",x);
+}
+</script>
 
 </html>
