@@ -20,7 +20,7 @@
 
 import Route from "@ioc:Adonis/Core/Route";
 
-Route.on("/").render("home");
+Route.on("/").render("home").as('home_show');
 Route.get("project1", "HomeController.project1");
 Route.get("project2", "HomeController.project2");
 Route.get("project3", "HomeController.project3");
@@ -29,6 +29,7 @@ Route.get("project5", "HomeController.project5");
 Route.get("project6", "HomeController.project6");
 Route.get("project7", "HomeController.project7");
 Route.get("project8", "HomeController.project8");
-Route.get("project9", "HomeController.project9");
+Route.get("project9", "HomeController.project9").as('users.show');
 Route.get("signup", "HomeController.showsignup");
 Route.post("submit", "DatesController.submit");
+Route.get("home", "FootersController.home");

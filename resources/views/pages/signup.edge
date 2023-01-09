@@ -2,36 +2,41 @@
 @set('title', 'Sign Up Page')
 
 @section('containt')
-<section class="p-4">
-    <h3 class="text-center">Registration Page</h3>
+<section class="p-4 bgimage">
+    <h3 class="text-center bg-light py-2">Registration Page</h3>
     <hr>
-    <form action="/submit" method="post">
-        <div class="d-flex justify-content-center border border-danger p-4">
+    <form action="/submit" method="post" enctype="multipart/form-data">
+        <div class="d-flex justify-content-center border border-danger py-4 bg-light">
             <div class="col-5 px-4">
                 <div class="form-group">
                     <label class="form-label" for="fname">First Name</label>
-                    <input type="text" name="fname" id="fname" class="form-control" autocomplete="off">
+                    <input type="text" name="fname" id="fname" class="form-control" autocomplete="off" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="email">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" autocomplete="off">
+                    <input type="email" name="email" id="email" class="form-control" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <label>Profile Photo</label>
+                    <input type="file" class="form-control" name="photo" id="profile_photo">
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="dob">Date of Birth</label>
-                    <input type="Date" name="dob" id="dob" class="form-control" autocomplete="off">
+                    <input type="Date" name="dob" id="dob" class="form-control" autocomplete="off" required>
                 </div>
-                
+
                 <button class="btn btn-secondary mt-4" type="reset">RESET</button>
                 <button class="btn btn-success mt-4" type="submit">SUBMIT</button>
             </div>
             <div class="col-5 px-4">
                 <div class="form-group">
                     <label class="form-label" for="lname">Last Name</label>
-                    <input type="text" name="lname" id="lname" class="form-control" autocomplete="off">
+                    <input type="text" name="lname" id="lname" class="form-control" autocomplete="off" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="password">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" autocomplete="off">
+                    <input type="password" name="password" id="password" class="form-control" autocomplete="off"
+                        required>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="qualification">Highest Qualification</label>

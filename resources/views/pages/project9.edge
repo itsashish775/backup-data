@@ -1,8 +1,41 @@
 @layout('layouts/main')
-@set('title', 'Project 9')
+@set('title', 'Project9')
 
 @section('containt')
-  <section class="">
-    <h1>this is Project 9</h1>
-  </section>
+<section class="">
+  <h1 class="text-center">All registered User</h1>
+  <div class="px-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th> </th>
+          <th> Full Name</th>
+          <th>Email</th>
+          <th>User-Id</th>
+          <th>Password</th>
+          <th>Date of Birth</th>
+          <th>Qualification</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @each(user in row)
+        <tr>
+          <td><img src={{user.profile_pic}} alt="profilePic" srcset="" width="40" height="40" class="profile_pic"></td>
+          <td class="bg-light m-2" style="border-radius:15%;">{{user.fname}} {{user.lname}}</td>
+          <td class="bg-light m-2" style="border-radius:15%">{{user.email}}</td>
+          <td class="bg-light m-2" style="border-radius:15%">{{user.id}}</td>
+          <td class="bg-light m-2" style="border-radius:15%">{{user.password}}</td>
+          <td class="bg-light m-2" style="border-radius:15%">{{user.dob}}</td>
+          <td class="bg-light m-2" style="border-radius:15%">{{user.qualification}}</td>
+          <td>
+            <i class="material-icons p-1 edit">edit</i>
+            <i class="material-icons p-1 delete">delete</i>
+          </td>
+        </tr>
+        @endeach
+      </tbody>
+    </table>
+  </div>
+</section>
 @end

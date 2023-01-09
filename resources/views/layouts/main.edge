@@ -16,10 +16,22 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --bg-color: #562889;
+        --color: white;
+        /* --: #ffffff; */
+    }
+
     .footer1 ul {
         display: flex;
         justify-content: center;
-        color: aliceblue;
+        /* color: aliceblue; */
     }
 
     .footer1 ul li {
@@ -28,12 +40,35 @@
         list-style: none;
     }
 
-    .footer1 ul li:hover {
-        cursor: pointer;
+    /* .footer1 ul li a{
+        color:white;
+    } */
+    .footer1 ul li a:hover {
         color: black;
         border-bottom: 1px solid black;
-        /* border:1px solid black; */
     }
+
+    .footer1 ul li a {
+        color: white;
+        /* border-bottom: 1px solid black; */
+    }
+
+    .active1 {
+        color: black;
+        border-bottom: 1px solid black;
+    }
+
+    .profile_pic {
+        background-color: #00ff00;
+        border: 1px solid black;
+        border-radius: 50%;
+    }
+
+    /* .footer1 ul li:hover {
+        cursor: pointer;
+        color: black;
+        border:1px solid black;
+    } */
 
     .footer-div {
         display: flex;
@@ -45,7 +80,7 @@
         left: 0;
         bottom: 0;
         width: 100%;
-        /* background-color: red; */
+        background-color: var(--bg-color);
         color: white;
         text-align: center;
         border-top: 1px solid white;
@@ -53,11 +88,11 @@
 
     a {
         text-decoration: none;
-        color: white;
+        color: var(--color);
     }
 
     .sidebar {
-        background-color: #212529;
+        background-color: var(--bg-color);
         position: fixed;
         left: 0;
         height: 100%;
@@ -70,20 +105,21 @@
         padding: 0.3rem 0.4rem;
         margin-bottom: 1px;
         display: flex;
+        margin-right: 1rem;
         /* border: 1px solid white; */
     }
 
     .list:hover {
-        background-color: #1a73e8;
+        background-color: var(--color);
         color: whitesmoke;
-        border-top-right-radius: 50%;
-        border-bottom-right-radius: 50%;
+        border-top-right-radius: 80%;
+        border-bottom-right-radius: 80%;
     }
 
     .active {
-        border-top-right-radius: 50%;
-        border-bottom-right-radius: 50%;
-        background-color: #1a73e8;
+        border-top-right-radius: 80%;
+        border-bottom-right-radius: 80%;
+        background-color: var(--color);
     }
 
     .active a {
@@ -92,7 +128,7 @@
 
     .list a:hover {
         cursor: pointer;
-        color: white;
+        color: var(--bg-color);
     }
 
     .main {
@@ -107,12 +143,13 @@
         border: 0.01rem solid white;
         padding: 0.2rem;
         border-radius: 0.2rem;
-        margin: 0 0.2rem
+        margin: 0 0.2rem;
+        color: white
     }
 
     .main a:hover {
-        background-color: #1a73e8;
-        color: white;
+        background-color: whitesmoke;
+        color: black;
     }
 
     .containt {
@@ -124,7 +161,7 @@
         margin-top: 0.5rem;
         height: 75%;
     }
-    
+
     .login {
         position: absolute;
         width: 100%;
@@ -133,7 +170,7 @@
         background: #0000007a;
         display: none;
     }
-    
+
     .login .main {
         background-color: white;
         border-radius: 10px 0px 10px 0px;
@@ -143,33 +180,81 @@
         margin-top: 1rem;
         box-shadow: 10px 10px 21px -3px rgba(0, 0, 0, 0.75);
     }
-    
+
+    .edit:hover {
+        cursor: pointer;
+        color: blue;
+        background-color: white;
+        border-radius: 50%;
+        padding: 1px;
+
+    }
+
+    .delete:hover {
+        cursor: pointer;
+        color: red;
+        background-color: white;
+        border-radius: 50%;
+        padding: 1px;
+    }
+
+    .bgimage {
+        background-image: url('https://i.pinimg.com/originals/f8/b6/9e/f8b69e6156999b84137f3f0a23701b75.jpg');
+        height: 75vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: opacity(80%);
+    }
+
+    .bgimage:hover {
+        /* box-shadow: 0px 0px 51px 7px rgba(255,0,168,0.75); */
+        filter: opacity(100%);
+        /* height: 90vh; */
+
+    }
+
+    .time {
+
+        position: absolute;
+        right: 0px;
+        top: 32px;
+        background: repeating-radial-gradient(ellipse farthest-side at center center, #00fff6 8%, #00ff00 20%);
+        color: white;
+    }
+
     .toggle {
         background-color: #fff;
     }
-    @media (max-width: 1000px){
-        .res{
+
+    @media (max-width: 1000px) {
+        .res {
             display: none;
         }
-        .sidebar{
+
+        .sidebar {
             width: 10%;
         }
+
         .containt {
-            
-            left: 11%;
+
+            Key Value Description left: 11%;
             width: 88%;
             /* top:rem; */
             /* margin-top: 0.5rem;
             height: 75%; */
         }
+
+        .footer1 {
+            display: none;
+        }
     }
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-secondary">
+    <nav class="navbar navbar-expand-sm" style="background-color:var(--bg-color)">
 
         <div class="container-fluid">
-            <div class="text-light main">
+            <div class="text-white main">
                 <div class="fs-3 ">MyCAGE</div>
                 <div class="">
                     <a href="#" onclick="showlogin()">LOG IN</a>
@@ -184,46 +269,55 @@
         <section class="bg-secondary text-light">
             <div class="nav d-flex flex-column sidebar">
                 <div class="list {{title=='Project1'?'active':''}}">
-                    
-                    <a href="/project1"><i class="material-icons mr-2">person</i><span class="res"> Bootstrap Accordion</span></a>
+
+                    <a href="/project1"><i class="material-icons mr-2">person</i><span class="res"> Bootstrap
+                            Accordion</span></a>
                 </div>
                 <div class="list {{title=='Project2'?'active':''}}">
-                    
-                    <a href="/project2"><i class="material-icons mr-2">notifications_active</i><span class="res"> Bootstrap Cards</span></a>
+
+                    <a href="/project2"><i class="material-icons mr-2">notifications_active</i><span class="res">
+                            Bootstrap Cards</span></a>
                 </div>
                 <div class="list {{title=='Project3'?'active':''}}">
-                    
-                    <a href="/project3"><i class="material-icons mr-2">downhill_skiing</i><span class="res"> Bootstrap Carousel</span></a>
+
+                    <a href="/project3"><i class="material-icons mr-2">downhill_skiing</i><span class="res"> Bootstrap
+                            Carousel</span></a>
                 </div>
                 <div class="list {{title=='Project4'?'active':''}}">
-                    
-                    <a href="/project4"><i class="material-icons mr-2">heart_broken</i><span class="res"> Bootstrap Dropdowns</span></a>
+
+                    <a href="/project4"><i class="material-icons mr-2">heart_broken</i><span class="res"> Bootstrap
+                            Dropdowns</span></a>
                 </div>
                 <div class="list {{title=='Project5'?'active':''}}">
-                    
-                    <a href="/project5"><i class="material-icons mr-2">fireplace</i><span class="res"> Bootstrap Spinners</span></a>
+
+                    <a href="/project5"><i class="material-icons mr-2">fireplace</i><span class="res"> Bootstrap
+                            Spinners</span></a>
                 </div>
                 <div class="list {{title=='Project6'?'active':''}}">
-                    
-                    <a href="/project6"><i class="material-icons mr-2">face_6</i><span class="res"> Bootstrap Background color</span></a>
+
+                    <a href="/project6"><i class="material-icons mr-2">face_6</i><span class="res"> Bootstrap Background
+                            color</span></a>
                 </div>
                 <div class="list {{title=='Project7'?'active':''}}">
-                    
-                    <a href="/project7"><i class="material-icons mr-2">party_mode</i><span class="res"> Bootstrap Table</span></a>
+
+                    <a href="/project7"><i class="material-icons mr-2">party_mode</i><span class="res"> Bootstrap
+                            Table</span></a>
                 </div>
                 <div class="list {{title=='Project8'?'active':''}}">
-                    
-                    <a href="/project8"><i class="material-icons mr-2">kayaking</i><span class="res"> Bootstrap Icons</span></a>
+
+                    <a href="/project8"><i class="material-icons mr-2">kayaking</i><span class="res"> Bootstrap
+                            Icons</span></a>
                 </div>
                 <div class="list {{title=='Project9'?'active':''}}">
-                    
-                    <a href="/project9"><i class="material-icons mr-2">replay_circle_filled</i><span class="res"> Bootstrap Fonst</span></a>
+
+                    <a href="/project9"><i class="material-icons mr-2">group</i><span class="res"> Registered
+                            Users</span></a>
                 </div>
 
             </div>
         </section>
     </div>
-    <div class="container containt">
+    <div class="containt">
         @!section('containt')
     </div>
     <div class="login" id="login">
@@ -259,15 +353,15 @@
     </div>
 
     <footer class="footer1">
-        <div class="bg-primary">
+        <div class="">
             <div>
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Follow</li>
-                    <li>Like</li>
-                    <li>Share</li>
+                    <li><a href="/home" class="{{title=='Home page'?'active1':''}}">Home</a></li>
+                    <li><a href="http://www.google.com">Google</a></li>
+                    <li><a href="http://www.facebook.com">Facebook</a></li>
+                    <li><a href="http://www.linkedIn.com">LinkedIN</a></li>
+                    <li><a href="https://www.geeksforgeeks.org">GG</a></li>
+                    <li><a href="http://www.youtube.com">Youtube</a></li>
                 </ul>
             </div>
             <div class="footer-div">
