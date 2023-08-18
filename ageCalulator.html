@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+</head>
+
+<body>
+    <h3>Calculate Your age here:---></h3>
+    <label for="date">Enter your date of Birth</label>
+    <input type="date" name="" id="date"><br>
+    <button onclick="onclik()">Click</button>
+    <div id="showAge"></div>
+    <script>
+        function onclik() {
+            let date = document.getElementById("date").value;
+            if (date != "") {
+                let x = new Date(date)
+                let y = new Date()
+                if (y > x) {
+                    let date1 = x > y ? "" : y - x;
+                    let newDate = new Date(date1);
+                    console.log(newDate);
+                    let totalyear = newDate.getFullYear() - 1970;
+                    document.getElementById('showAge').innerHTML = "You are " + totalyear + " years Old";
+                    document.getElementById('showAge').style.color="black";
+                } else {
+                    document.getElementById('showAge').innerHTML = "* You enterd a future Date";
+                    document.getElementById('showAge').style.color="green";
+                }
+            } else {
+                document.getElementById('showAge').innerHTML = "* Please Enter a valid date";
+                document.getElementById('showAge').style.color="red";
+            }
+        }
+    </script>
+</body>
+
+</html>

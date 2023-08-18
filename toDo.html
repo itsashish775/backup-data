@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoPage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        .input {
+            border: 1px solid red;
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        .input h3 {
+            text-align: center;
+        }
+
+        /* .ddate{
+            width: ;
+        } */
+        .row1 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .row2 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .input button {
+            background: blue;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            font-weight: bold;
+            border: none;
+            margin-left: auto;
+            margin-right: auto;
+            width: 20%;
+        }
+
+        .output {
+            border: 1px solid red;
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        .output h3 {
+            text-align: center;
+        }
+
+        .output .container1 {
+
+            /* position: relative; */
+            border: 1px solid green;
+        }
+
+        .btns {
+            float: right;
+        }
+
+        .btn1 {
+            background: yellow;
+            /* border: none */
+            color: black;
+            padding: 1px;
+            margin: 0 2px;
+        }
+
+        .btn2 {
+            background: red;
+            /* border: no */
+            color: white;
+            padding: 1px;
+            margin: 0 2px;
+        }
+
+        .btn3 {
+            background: green;
+            /* border: none */
+            color: white;
+            /* color: black; */
+            padding: 1px;
+            margin: 0 2px;
+        }
+
+        .main {
+            border-bottom: 0.2rem solid brown;
+            padding: 0.4rem;
+        }
+
+        .astric {
+            color: red;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 880px) {
+            .container {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input">
+            <h3>To-Do Form Input</h3>
+            <hr style="margin: 0.3rem 0;">
+            <p class="astric" id="err"></p>
+            <div class="row1">
+                <div>
+                    <label for="title">Title<span class="astric">*</span></label><br>
+                    <input type="text" name="" id="title"><br>
+                </div>
+                <div>
+                    <label for="ddate">Due Date<span class="astric">*</span></label><br>
+                    <input type="date" name="" id="ddate"><br>
+                </div>
+            </div>
+            <div class="row2">
+                <div>
+                    <label for="desc">Description<span class="astric">*</span></label><br>
+                    <textarea name="" id="desc" cols="21" rows="3"></textarea><br>
+                </div>
+                <div>
+                    <label for="pty">Priority<span class="astric">*</span></label><br>
+                    <Select style="width: 180px;" id="priority">
+                        <option selected disabled>Choose one of them</option>
+                        <option>C</option>
+                        <option>c++</option>
+                        <option>JAVA</option>
+                        <option>Python</option>
+                        <option>C#</option>
+                        <option>DOT NET</option>
+                    </Select>
+                </div>
+            </div>
+            <button onclick="UpdateInfo()" id="btm">Submit</button>
+        </div>
+
+        <div class="output">
+            <h3>To-Do Form Output</h3>
+            <hr style="margin: 0.3rem 0;">
+            <div id="toDoRe" class="main">
+
+            </div>
+        </div>
+        <script>
+            // showData();
+            const jsonArr = [];
+            function UpdateInfo() {
+                let title = document.getElementById('title').value;
+
+                let ddate = document.getElementById('ddate').value;
+                let desc = document.getElementById('desc').value;
+                let priority = document.getElementById('priority').value;
+                // console.log(title,ddate,desc,priority);
+                if (title == "" || ddate == "" || desc == "" || priority == "Choose one of them") {
+                    document.getElementById('err').innerHTML = 'All fields should be filed';
+                    // alert('All fields should be filed')
+                } else {
+                    document.getElementById('err').innerHTML = '';
+                    document.getElementById('title').value = '';
+                    document.getElementById('ddate').value = '';
+                    document.getElementById('desc').value = '';
+                    document.getElementById('priority').value = 'Choose one of them';
+                    document.getElementById('title').disabled = false;
+                    let json = { title: title, dueDate: ddate, description: desc, priority: priority };
+                    document.getElementById('btm').innerHTML = 'Submit';
+                    let find1 = jsonArr.find(n => n.title == title);
+                    if (find1) {
+                        find1.title = json.title;
+                        find1.dueDate = json.dueDate;
+                        find1.description = json.description;
+                        find1.priority = json.priority;
+                        alert('Data Updated SuccessFully....')
+                    } else {
+                        jsonArr.push(json);
+                        alert('Data Submitted SuccessFully....')
+                    }
+                    showData();
+                }
+
+            }
+            function showData() {
+                let arr = jsonArr.map(n => {
+                    let str = "";
+                    str += '<div class="btns">';
+                    str += `<button class="btn1" onclick=edit(event)>Edit</button>`;
+                    str += '<button class="btn2" onclick=delete1(event)>Delete</button>';
+                    str += '<button class="btn3">Submit</button>';
+                    str += '</div>';
+                    str += '<br>';
+                    str += '<p><b>Title:</b><span id="title">' + n.title + '</span></p>';
+                    str += '<p><b>Due Date:</b>' + n.dueDate + '</p>';
+                    str += '<p><b>Description:</b>' + n.description + '</p>';
+                    str += '<p><b>Priority:</b>' + n.priority + '</p>';
+                    str += '<hr style="margin: 0.3rem 0;">';
+                    return str;
+                })
+                let str = '';
+                str += arr.join('');
+                str += '</div>'
+                if (arr.length <= 0) {
+                    str = '<h4 style="align-items: center;">Nothing to show</h4>';
+                }
+                document.getElementById('toDoRe').innerHTML = str;
+            }
+            function edit(name) {
+                let name1=name.target.parentElement.nextSibling.nextSibling.children[1].innerHTML;
+                
+                console.log(name1);
+                let f1 = jsonArr.find(n => n.title == name1);
+                document.getElementById('title').value = f1.title;
+                document.getElementById('title').disabled = true;
+                document.getElementById('ddate').value = f1.dueDate;
+                document.getElementById('desc').value = f1.description;
+                document.getElementById('priority').value = f1.priority;
+                document.getElementById('btm').innerHTML = 'Update';
+            }
+            function delete1(name) {
+                let name1=name.target.parentElement.nextSibling.nextSibling.children[1].innerHTML;
+                let index = jsonArr.findIndex(n => n.title == name1);
+                jsonArr.splice(index, 1);
+                showData();
+            }
+        </script>
+</body>
+
+</html>

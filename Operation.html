@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defferent operations</title>
+    <style>
+        .container {
+            /* border: 1px solid black; */
+            margin: 5rem auto;
+
+        }
+
+        button {
+            background: green;
+            color: white;
+            font-weight: bold;
+            /* border: none; */
+            border-radius: 1rem;
+        }
+
+        .main {
+            border: 1px solid violet;
+            padding: 1rem 2rem;
+            margin: 0 auto;
+            width: 80%;
+        }
+
+        .main input {
+            width: 100%;
+            height: 1.5rem;
+            background: whitesmoke;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .black {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+   
+
+    <div class="container">
+        <button onclick="aveRageFind()">Find Average</button>
+        <button onclick="findMax()">Find Maximum</button>
+        <button onclick="findMin()">Find Minimum</button>
+        <button onclick="FindVowels()">Count Vowels</button>
+        <button onclick="highLightVowel()">HighLight Vowels</button>
+        <button onclick="DiffDate()">Date Difference</button>
+
+    </div><br>
+    <div class="main" id="dateDiff">
+        <label for="">Enter</label>
+        <input type="text" id="textField" onkeyup="countCharWord()"><br><br>
+        <div id="show"></div>
+    </div>
+    <script>
+
+        function DiffDate() {
+            let str = '<label for="">Date1</label>';
+            str += '<input type="date" id="date1">';
+            str += '<label for="">Date2</label>';
+            str += '<input type="date" id="date2"><br>';
+            str += '<div id="show1"></div><br>';
+            str += '<button onclick="calculate()">Calculate</button>';
+            document.getElementById('dateDiff').innerHTML = str;
+        }
+        function calculate() {
+            let da1 = document.getElementById('date1').value;
+            let da2 = document.getElementById('date2').value;
+            if(da1!=""&&da2!=""){
+                let d1 = new Date(da1);
+                let d2 = new Date(da2);
+                let y1 = d1.getFullYear();
+                let y2 = d2.getFullYear();
+                let m1 = d1.getMonth();
+                let m2 = d2.getMonth();
+                let din1 = d1.getDate();
+                let din2 = d2.getDate();
+                let year = Math.abs(y1 - y2);
+                let month = Math.abs(m1 - m2);
+                let day = Math.abs(din1 - din2);
+                document.getElementById('show1').innerHTML ="Year : "+year+" Month : "+month+" Day : "+day;
+                document.getElementById('show1').style.color = "black";
+            }else{
+                document.getElementById('show1').innerHTML ="* Date Should not be empty";
+                document.getElementById('show1').style.color = "red";
+            }
+        }
+        function highLightVowel() {
+            let str = document.getElementById('textField').value;
+
+            let string = str.replace(/[aeiou]/gi, "<mark>\$\&</mark>")
+            // let str1 = "aAeEiIoOuU";
+            // let string = '';
+            // if (str == "") {
+            //     document.getElementById('show').innerHTML = "* Box is Empty";
+            //     document.getElementById('show').style.color = "red";
+            // } else {
+            //     for (let i = 0; i < str.length; i++) {
+            //         if (str1.includes(str.charAt(i))) {
+            //             string += '<span class="red">' + str.charAt(i) + '</span>';
+            //         } else {
+            //             string += '<span class="black">' + str.charAt(i) + '</span>';
+            //         }
+            //     }
+                document.getElementById('show').innerHTML = string;
+            }
+
+        // }
+        function FindVowels() {
+            let str = document.getElementById('textField').value;
+            let str1 = '';
+            let count = 0;
+            str2 = "aAeEiIoOuU";
+            if (str == "") {
+                document.getElementById('show').innerHTML = "* Box is Empty";
+                document.getElementById('show').style.color = "red";
+            } else {
+                for (let i = 0; i < str.length; i++) {
+                    if (str2.includes(str.charAt(i))) {
+                        count++;
+                        str1 += str1.includes(str.charAt(i)) ? "" : str.charAt(i);
+                    }
+                }
+                document.getElementById('show').innerHTML = "Vowel count is : " + count + "<br> While vowels are : " + str1;
+                document.getElementById('show').style.color = "black";
+            }
+        }
+
+        function countCharWord() {
+            let str = document.getElementById('textField').value;
+            document.getElementById('show').innerHTML = "Charecter count is : " + str.length + "<br> Word count is : " + wordCount(str);
+            document.getElementById('show').style.color = "black";
+        }
+        function wordCount(str) {
+            let count;
+            if (str == "") {
+                count = 0;
+            } else {
+                count = 1;
+            }
+            for (let i = 0; i < str.length; i++) {
+                if (str.charAt(i) == " " || str.charAt(i) == "," || str.charAt(i) == "\n" || str.charAt(i) == ".") {
+                    count = count + 1;
+                }
+            }
+            return count;
+        }
+        function findMin() {
+            let str = document.getElementById('textField').value;
+            if (str == "") {
+                document.getElementById('show').innerHTML = "* Box is Empty";
+                document.getElementById('show').style.color = "red";
+            } else if (!checkAlphabets(str)) {
+                document.getElementById('show').innerHTML = "* please enter numeric values only";
+                document.getElementById('show').style.color = "red";
+            } else {
+                let arr = str.split(" ");
+                let max = arr.reduce((acc, curr) => (Number(acc) < Number(curr)) ? Number(acc) : Number(curr));
+                document.getElementById('show').innerHTML = "The Manimum of Given Numbers is: " + max;
+                document.getElementById('show').style.color = "black";
+            }
+        }
+        function findMax() {
+            let str = document.getElementById('textField').value;
+            if (str == "") {
+                document.getElementById('show').innerHTML = "* Box is Empty";
+                document.getElementById('show').style.color = "red";
+            } else if (!checkAlphabets(str)) {
+                document.getElementById('show').innerHTML = "* please enter numeric values only";
+                document.getElementById('show').style.color = "red";
+            } else {
+                let arr = str.split(" ");
+                let max = arr.reduce((acc, curr) => (Number(acc) > Number(curr)) ? Number(acc) : Number(curr));
+                document.getElementById('show').innerHTML = "The Maximum of Given Numbers is: " + max;
+                document.getElementById('show').style.color = "black";
+            }
+        }
+        function aveRageFind() {
+            let str = document.getElementById('textField').value;
+            if (str == "") {
+                document.getElementById('show').innerHTML = "* Box is Empty";
+                document.getElementById('show').style.color = "red";
+            } else if (!checkAlphabets(str)) {
+                document.getElementById('show').innerHTML = "* please enter numeric values only";
+                document.getElementById('show').style.color = "red";
+            } else {
+                let arr = str.split(" ");
+                let total = arr.reduce((acc, curr) => Number(acc) + Number(curr));
+                let avg = total / (arr.length);
+                document.getElementById('show').innerHTML = "The average of Given Numbers is: " + avg.toFixed(3);
+                document.getElementById('show').style.color = "black";
+            }
+        }
+        function checkAlphabets(str) {
+            let str1 = "0123456789";
+            for (let i = 0; i < str.length; i++) {
+                if (str1.includes(str.charAt(i)) || str[i] == " ") {
+                    // return false;
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>

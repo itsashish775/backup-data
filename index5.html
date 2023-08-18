@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <script src="./Module/shape.js"></script> -->
+  <script>
+    class Car {
+      constructor(name, color) {
+        this.name = name;
+        this.color = color;
+      }
+      color1() {
+        let info = 'Car is ' + this.name + " and it is " + this.color + " in color."
+        console.log(info);
+      }
+    }
+
+    class Honda extends Car {
+      constructor(name, color, price) {
+        super(name, color);
+        this.price = price;
+      }
+      display() {
+        super.color1();
+        console.log("And price is " + this.price);
+      }
+    }
+    let h1 = new Honda('Honda City', 'Black', 500000000000);
+    h1.display();
+    //call  back function i javascript..........
+
+    function display(something) {
+      console.log(something);
+    }
+
+    function callback(a, b, fun) {
+      let sum = a + b;
+      fun(sum);
+    }
+    callback(5, 10, display);
+    function myDisplayer(some) {
+      console.log(some);
+    }
+
+    let myPromise = new Promise(function (myResolve, myReject) {
+      let x = 0;
+
+      // some code (try to change x to 5)
+
+      if (x == 1) {
+        myResolve("OK");
+      } else {
+        myReject("Error");
+      }
+    });
+
+    myPromise.then(
+      function (value) { myDisplayer(value); },
+      function (error) { myDisplayer(error); }
+    );
+
+  </script>
+</body>
+
+</html>

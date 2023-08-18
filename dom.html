@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dome Example</title>
+
+
+</head>
+
+<body>
+    <h1>Hello this is DOM nodes creations</h1>
+    <p>Now we will create elements dynamically.</p>
+    <div id="div1"></div>
+    <script>
+        let node=document.createElement('h1');
+        let node1=document.createElement('h1');
+        let node2=document.createElement('h1');
+        let radio1=document.createElement('input');
+        let brTag1=document.createElement('br');
+        let brTag2=document.createElement('br');
+        let brTag3=document.createElement('br');
+    
+        radio1.type='radio';
+        radio1.value='male';
+        radio1.name='gender';
+        let radio2=document.createElement('input');
+        radio2.type='radio';
+        radio2.value='female';
+        radio2.name='gender';
+        let radio3=document.createElement('input');
+        radio3.type='radio';
+        radio3.value='others';
+        radio3.name='gender';
+        node2.id='ls';
+
+        
+    
+        let sec=document.createTextNode('Hello');
+        let sec1=document.createTextNode('this is Ashish');
+        let sec2=document.createTextNode('Hey ! Everyone');
+        let rT1=document.createTextNode('Male');
+        let rT2=document.createTextNode('Female');
+        let rT3=document.createTextNode('Others');
+     
+        node.appendChild(sec);
+        node1.appendChild(sec1);
+        node2.appendChild(sec2);
+        
+        document.getElementById('div1').appendChild(node);
+        document.getElementById('div1').appendChild(node1);
+        document.getElementById('div1').appendChild(node2);
+        document.getElementById('div1').appendChild(radio1);
+        document.getElementById('div1').appendChild(rT1);
+        document.getElementById('div1').appendChild(radio2);
+        document.getElementById('div1').appendChild(rT2);
+        document.getElementById('div1').appendChild(radio3);
+        document.getElementById('div1').appendChild(rT3);
+        document.getElementById('div1').insertBefore(brTag1,radio1)
+        document.getElementById('div1').insertBefore(brTag2,radio2)
+        document.getElementById('div1').insertBefore(brTag3,radio3)
+        document.getElementById('div1').style.color='green'
+        let child=document.getElementById('ls');
+        child.parentNode.removeChild(child);
+        console.log(child);
+    </script>
+</body>
+
+</html>

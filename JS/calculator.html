@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/calculator.css">
+</head>
+
+<body>
+    <div class="conatiner">
+        <div class="body">
+            <div class="textBox">
+                <input type="text" name="" id="textField" dir="rtl" placeholder="Enter Number">
+                <p dir="rtl" id="result">=</p>
+            </div>
+            <div class="keypad">
+                <table>
+                    <tr>
+                        <td class="startBtn" onclick="reset()">C</td>
+                        <td class="btn" onclick=get(this) id="+">+</td>
+                        <td class="btn">%</td>
+                        <td class="btn" onclick=get(this) id="/">/</td>
+                        <td class="delBtn" onclick=delOne()>Del</td>
+                    </tr>
+                    <tr>
+                        <td onclick=get(this) id="8">8</td>
+                        <td onclick=get(this) id="7">7</td>
+                        <td onclick=get(this) id="9">9</td>
+                        <td colspan="2" class="btn" onclick=get(this) id="*">*</td>
+                    </tr>
+                    <tr>
+                        <td onclick=get(this) id="6">6</td>
+                        <td onclick=get(this) id="5">5</td>
+                        <td onclick=get(this) id="4">4</td>
+                        <td colspan="2" class="btn" onclick=get(this) id="-">-</td>
+                    </tr>
+                    <tr>
+                        <td onclick=get(this) id="1">1</td>
+                        <td onclick=get(this) id="2">2</td>
+                        <td onclick=get(this) id="3">3</td>
+                        <td colspan="2" class="btn" onclick=get(this) id="+">+</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" onclick=get(this) id="0">0</td>
+                        <td>.</td>
+                        <td colspan="2" class="btnR" onclick="showResult()">=</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/JS/calculator.js"></script>
+</body>
+
+</html>

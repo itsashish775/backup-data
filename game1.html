@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game1</title>
+    <style>
+        #show {
+            font-size: 8rem;
+            font-weight: bolder;
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        #show1 {
+            font-size: 1rem;
+            font-weight: bolder;
+            text-align: center;
+            margin-top: 2%;
+        }
+
+        .bbb {
+            background: green;
+            color: white;
+            /* margin-left: 50%; */
+            width: 100%;
+            padding: 1em;
+        }
+        .time12{
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        <center>Try to find :</center>
+    </h3>
+    <div id="show1"></div>
+    <div id="show" onclick=stop1()></div>
+    <button onclick="location.reload()" class="bbb">Replay</button>
+    <span id="hour" class="time12"></span><span id="min" class="time12"></span><span id="sec" class="time12"></span><span id="mili" class="time12"></span>
+   <script>
+        document.getElementById('show1').innerHTML = Math.trunc(Math.random() * 10 + 1);
+        const color = ["red", "black", "green", "yellow", "pink", "brown", "pink", "tomato"];
+        function show() {
+            document.getElementById('show').innerHTML = Math.trunc(Math.random() * 10 + 1);
+            document.getElementById('show').style.color = color[Math.floor(Math.random() * color.length)];
+        }
+        // show();
+        let myInterval = setInterval(show, 100);
+        function stop1() {
+            clearInterval(myInterval);
+            result();
+        }
+        function result() {
+            let num1 = document.getElementById('show1').innerHTML;
+            let num2 = document.getElementById('show').innerHTML;
+            if (Number(num1) == Number(num2)) {
+                alert('congrats!.. You won!')
+            } else {
+                alert('You loose... Try again!')
+            }
+        }
+        let d = new Date();
+        let d1 = d.getTime();
+        function stopwatch() {
+
+            setInterval(time1, 100);
+
+        }
+        function time1() {
+            let dd=new Date();
+            let dd1=dd-d1;
+            let time1=Math.trunc(dd1/1000)
+            let mil=Math.trunc(time1);
+            let sec=(time1)%60;
+            let min=Math.trunc(time1/60);
+            let hour=Math.trunc(time1/3600);
+            // console.log(Math.trunc(dd1/1000));
+            document.getElementById('hour').innerHTML=hour+":";
+            document.getElementById('min').innerHTML=min+":";
+            document.getElementById('sec').innerHTML=sec+"";
+            // document.getElementById('mili').innerHTML=mil;
+        }
+        stopwatch();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="sort1()">sort alfabatically</button>
+    <button onclick="sort2()">sort numarically</button>
+    <button onclick="sort3()">sort Randomly</button>
+    <button onclick="max()">Find Max</button>
+    <button onclick="min()">Find Min</button>
+    <button onclick="location.reload();">refresh</button><br><br>
+    <label for=""></label>
+    <div id="demo"><input type="text" id="text"></div>
+    <script>
+        function sort1() {
+            let x = document.getElementById('text').value;
+            let arr=x.split(' ');
+            arr.sort();
+            document.getElementById('demo').innerHTML=arr.join(" ");
+        }
+        function sort2() {
+            let x = document.getElementById('text').value;
+            let arr=x.split(' ');
+            arr.sort((a,b)=>a-b);
+            document.getElementById('demo').innerHTML=arr.join(" ");
+        }
+        function sort3() {
+            let x = document.getElementById('text').value;
+            let arr=x.split(' ');
+            arr.sort(()=>0.5-Math.random());
+            document.getElementById('demo').innerHTML=arr.join(" ");
+        }
+        function max() {
+            let x = document.getElementById('text').value;
+            let arr=x.split(' ');
+            let max1=Math.max(null,arr);
+            document.getElementById('demo').innerHTML=max1;
+        }
+        function min() {
+            let x = document.getElementById('text').value;
+            let arr=x.split(' ');
+            let min1=Math.min(arr);
+            document.getElementById('demo').innerHTML=min1;
+        }
+        console.log(Math.random());
+        </script>
+</body>
+
+</html>

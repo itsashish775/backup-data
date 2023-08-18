@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .form1{
+            background: rgb(146 215 143);
+            border: 1px solid yellow;
+            height: 50rem;
+        }
+        .form1 h2{
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: -2rem;
+        }
+        label{
+            font-weight: bold;
+        }
+        form {
+            /* border: 1px solid red; */
+            /* box-shadow: ; */
+            width: 26rem;
+            margin:  3rem auto;
+            padding: 1rem;
+            background-color: aliceblue;
+            box-shadow: 13px 15px 64px orangered;
+        }
+
+        .name {
+            display: flex;
+            justify-content: space-around;
+            margin: 0.5rem 0;
+        }
+
+        .second {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+        }
+
+        .rdio {
+            margin: 0 0.30rem;
+        }
+
+        .textField {
+            width: 100%;
+            margin: 0.2rem 0;
+        }
+        .contact{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .btn{
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn1{
+            margin: 1rem;
+            padding:0.5rem 1rem;
+            background:blue;
+            color: wheat;
+            font-weight: bold;
+        }
+        .btn2{
+            margin: 1rem;
+            padding:0.5rem 1rem;
+            background-color: green;
+            color: wheat;
+            font-weight: bold;
+        }
+        .astric{
+            color: red;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form1">
+        <h2>Registration Form</h2>
+        <form action="">
+            <p class="astric">All * field are required to fill</p>
+            <div class="name">
+                <div>
+                    <label for="fname">First Name<spna class="astric">*</spna></label>
+                    <input class="textField" type="text" id="fname">
+                </div>
+                <div>
+                    <label for="mname">Middle Name</label>
+                    <input class="textField" type="text" id="mname">
+                </div>
+                <div>
+                    <label for="lname">Last Name<spna class="astric">*</spna></label>
+                    <input class="textField" type="text" id="lname">
+                </div>
+            </div>
+            <p class="astric" id="err1"></p>
+            <p class="astric" id="err2"></p>
+            <p class="astric" id="err3"></p>
+            <div class="second">
+                <div>
+                    <label for="">Date of birth<spna class="astric">*</spna></label><br>
+                    <select name="day" id="day">
+                        <option disabled selected>DD</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
+                    </select>
+                    <select name="mon" id="month">
+                        <option disabled selected>MM</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                    <select name="year" id="year">
+                        <option disabled selected>YYYY</option>
+                        <option>1990</option>
+                        <option>1991</option>
+                        <option>1992</option>
+                        <option>1993</option>
+                        <option>1994</option>
+                        <option>1995</option>
+                        <option>1996</option>
+                        <option>1997</option>
+                        <option>1998</option>
+                        <option>1999</option>
+                        <option>2000</option>
+                        <option>2001</option>
+                        <option>2002</option>
+                        <option>2003</option>
+                        <option>2004</option>
+                        <option>2005</option>
+                        <option>2006</option>
+                        <option>2007</option>
+                        <option>2008</option>
+                        <option>2009</option>
+                        <option>2010</option>
+                    </select>
+                    <p id="derror" class="astric"></p>
+                </div>
+                <div class="rdio">
+                    <label for="">Gender<spna class="astric">*</spna></label><br>
+                    <div>
+                        <input type="radio" name="gender" id="g1">Male
+                        <input type="radio" name="gender" id="g2">Female
+                        <input type="radio" name="gender" id="g3">others
+                    </div>
+                    <p class="astric" id="radio"></p>
+                </div>
+            </div>
+            <label for="email">Enter your Email<spna class="astric">*</spna></label><br>
+            <input class="textField" type="email" id="email"><br>
+            <p id="emailErr" class="astric"></p>
+            <label for="cname">Enter Previous College Name</label><br>
+            <input class="textField" type="text" id="cname">
+            
+            <label for="quali">Qualifications<spna class="astric">*</spna></label><br>
+            <p id="qualification" class="astric"></p>
+            <input type="checkbox" name="education" id="quali1">10th <br>
+            <input type="checkbox" name="education" id="quali2">12th <br>
+            <input type="checkbox" name="education" id="quali3">Graduation <br>
+            <input type="checkbox" name="education" id="quali4">Post-Graduation <br>
+            <input type="checkbox" name="education" id="quali5">Others<br>
+            
+            
+            <label for="add">Address<spna class="astric">*</spna></label><br>
+            <input class="textField" type="text" id="add1" placeholder="Home No./ Flat No. ">
+            <br>
+            <input class="textField" type="text" id="add2" placeholder="Street/Landmark/Block">
+            <p id="address" class="astric"></p>
+            <div class="contact">
+                <div>
+                    <label for="mobile">Contact<spna class="astric">*</spna></label><br>
+                    <input class="textField" type="text" id="mobile">
+                    <p class="astric" id="mobileError"></p>
+                </div>
+                <div>
+                    <label for="post">Pincode<spna class="astric">*</spna></label><br>
+                    <input class="textField" type="text" id="post" maxlength="6">
+                    <p class="astric" id="pincodeError"></p>
+                </div>
+                
+            </div>
+            
+            <input type="checkbox" name="" id="check"> Read Terms and Conditions ?<br>
+            <p class="astric" id="cheError"></p>
+            <div class="btn">
+                <input class="btn1" type="button" value="Reset" onclick="resetform()">
+                <input class="btn2" type="button" value="Submit" onclick="uploadData()">
+            </div>
+            
+        </form>
+    </div>
+    <script src="/JS/formValidation.js"></script>
+</body>
+
+</html>

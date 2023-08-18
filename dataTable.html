@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="table_id" class="display">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Address</th>
+                <th>Mobile</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Ashish</td>
+                <td>MCA</td>
+                <td>Raebareli</td>
+                <td>1234567890</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>ALok</td>
+                <td>B.tech</td>
+                <td>Kanpur</td>
+                <td>7894561230</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Kamal</td>
+                <td>BCA</td>
+                <td>Lucknow</td>
+                <td>75395146820</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>hello</td>
+                <td>BC</td>
+                <td>Ayodhya</td>
+                <td>7845129630</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>alpa</td>
+                <td>Good</td>
+                <td>Govindpur</td>
+                <td>9339142563</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            // $('#table_id').DataTable();
+            var data = [
+                [
+                    "Tiger Nixon",
+                    "System Architect",
+                    "Edinburgh",
+                    "5421",
+                    "2011/04/25",
+                ],
+                [
+                    "Garrett Winters",
+                    "Director",
+                    "Edinburgh",
+                    "8422",
+                    "2011/07/25",
+                ]
+            ]
+            $('#example').DataTable({
+                data: data
+            });
+        });
+    </script>
+</body>
+
+</html>

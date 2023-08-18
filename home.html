@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://www.pngwing.com/en/search?q=magnifying+glass">
+    <title>Home Page | singsys</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+    <div><a href="#" onclick="window.print()">Print</a></div><br>
+    <div class="nav">
+        <div class="logoSection">
+            <i><img src="/image/mglass.png" alt="" onclick="showSearchBar()"></i>
+            <span class="logo1">Search</span><span class="logo2">Nothing</span>
+        </div>
+        <div class="navBar">
+            <div class="">Home</div>
+            <div class="">About</div>
+            <div class="">Contact</div>
+            <div class="">Services</div>
+            <div class=""><button class="loginBtn" onclick="showLoginForm()">Login</button></div>
+            <div class=""><button class="signinBtn" onclick="showSignInForm()">SignIn</button></div>
+        </div>
+    </div>
+    <div class="login-Form" id="login">
+        <h2>Enter Your Detail for Login</h2>
+        <div class="details">
+            <form action="" method="post">
+                <fieldset>
+                    <legend>Login Here</legend>
+                    <label for="fname">Email</label><br>
+                    <input type="text" name="email" placeholder="Email Address"><br>
+                    <label for="lname">Password</label><br>
+                    <input type="password" name="password" placeholder="Password"><br><br>
+                    <button class="reBtn" type="reset">Reset</button>
+                    <button class="sBtn" type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="signIn-Form" id="signIn">
+        <h2>Wellcome to Search Nothing</h2>
+        <div class="details">
+            <form action="" method="post">
+                <fieldset>
+                    <legend>SignIn Here</legend>
+                    <label for="fname">Full Name</label><br>
+                    <input type="text" name="fullName" placeholder="Full Name"><br>
+                    <label for="fname">Email</label><br>
+                    <input type="text" name="emailId" placeholder="Email Address"><br>
+                    <label for="lname">Password</label><br>
+                    <input type="password" name="pass" placeholder="Password"><br>
+                    <label for="lname">Mobile No.</label><br>
+                    <input type="text" name="mobile" placeholder="Password"><br><br>
+                    <button class="reBtn">Reset</button>
+                    <button class="sBtn">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="search-Bar" id="search">
+        <input type="text" name="" id="" placeholder="Search Anything">
+        <button>Search</button>
+    </div>
+    <script src="JS/script.js"></script>
+</body>
+
+</html>

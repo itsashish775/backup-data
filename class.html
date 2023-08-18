@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class shape {
+            
+            constructor(l, w) {
+                this.length = l;
+                this.width = w;
+            }
+            area(){
+                return this.length*this.width;
+            } 
+            parameter(){
+                return (this.length+this.width)*2;
+            }           
+        }
+        let s=new shape(5,7);
+        console.log("Area of the Rectangle is: "+s.area());
+        console.log("Perimeter of the Rectangle is: "+s.parameter());
+    </script>
+</body>
+
+</html>
