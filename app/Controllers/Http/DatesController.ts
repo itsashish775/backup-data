@@ -1,9 +1,6 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import User from "App/Models/User";
 import Database from "@ioc:Adonis/Lucid/Database";
-import swal from "sweetalert";
-import Route from "@ioc:Adonis/Core/Route";
-import Application from "@ioc:Adonis/Core/Application";
+
 
 export default class DatesController {
   async submit({ request, session, response, view }) {
